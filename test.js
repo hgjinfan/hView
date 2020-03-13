@@ -1,36 +1,25 @@
-#!/usr/bin/env node
+var md = require('markdown-it')();
 
-const { semver, error } = require('@vue/cli-shared-utils')
+md.use(require('markdown-it-container'), 'spoiler', {
 
-const Service = require('@vue/cli-service/lib/Service')
-const service = new Service(process.env.VUE_CLI_CONTEXT || process.cwd())
+  validate: function (params) {
+    return params.trim().match(/^spoiler\s+(.*)$/);
+  },
 
-const rawArgv = process.argv.slice(2)
-const args = require('minimist')(rawArgv, {
-  boolean: [
-    // build
-    'modern',
-    'report',
-    'report-json',
-    'inline-vue',
-    'watch',
-    // serve
-    'open',
-    'copy',
-    'https',
-    // inspect
-    'verbose'
-  ]
-})
-const command = args._[0]
-console.log(command, args, rawArgv)
-service.run(command, args, rawArgv).catch(err => {
-  error(err)
-  process.exit(1)
-})
+  render: function (tokens, idx) {
+    var m = tokens[idx].info.trim().match(/^spoiler\s+(.*)$/);
 
-module.exports = {
-  configureWebpack: {
-      entry: './example/main.js'
+    if (tokens[idx].nesting === 1) {
+      // opening tag
+      console.log(m)
+      console.log(md.utils.escapeHtml(m[1]))
+      return '<details><summary>' + md.utils.escapeHtml(m[1]) + '</summary>\n';
+
+    } else {
+      // closing tag
+      return '</details>\n';
+    }
   }
-}
+});
+
+console.log(md.render('::: spoiler click me\n*content*\n:::\n'));

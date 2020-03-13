@@ -1,0 +1,31 @@
+{
+    "sideNav": [
+        {
+            "name": "指南",
+            "children": [
+                {
+                    "name": "intro",
+                    "path": "/guide/intro"
+                }
+            ]
+        },
+        {
+            "name": "组件",
+            "groups": [
+                {
+                    "name": "basic",
+                    "children": [
+                        {
+                            "name": "button",
+                            "path": "/basic/button"
+                        },
+                        {
+                            "name": "title",
+                            "path": "/basic/title"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "list": [
+        {
+            "path": "/basic/:comName"
+        },
+        {
+            "path": "/guide/:comName"
+        }
+    ]
+}
