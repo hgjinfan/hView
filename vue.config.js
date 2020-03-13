@@ -1,7 +1,7 @@
 var md = require('markdown-it-container')
 const mIt = require('markdown-it-decorate')
 module.exports = {
-    publicPath: './example/dist',
+    publicPath: './',
     outputDir: './example/dist',
     configureWebpack: {
         entry: './example/main.js',
