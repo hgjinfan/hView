@@ -62,6 +62,7 @@ export default {
 .pure-list-item {
   height: 32px;
   line-height: 32px;
+  cursor: pointer;
 }
 .nav-title {
   color: #333;
