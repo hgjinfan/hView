@@ -1,9 +1,6 @@
 <template>
   <nav class="side-nav bg-white">
     <ul>
-      <!-- <router-link class="nav-item" to="/" tag="li">home</router-link>
-      <router-link class="nav-item" to="/basic/title" tag="li">title</router-link>
-      <router-link class="nav-item" to="/basic/button" tag="li">button</router-link>-->
       <li v-for="item in sideNav" :key="item.name" class="nav-item">
         <div class="nav-title" v-text="item.name"></div>
         <div class="groups-wrapper" v-if="item.groups">
