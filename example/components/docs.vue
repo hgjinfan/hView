@@ -5,7 +5,7 @@
 </template>
 
 <script>
-const titleMd = () => import("../docs/basic/title.md");
+const titleMd = () => import(/* webpackChunkName: 'titleMd' */"../docs/basic/title.md");
 const buttonMd = () => import("../docs/basic/button.md");
 const introMd = () => import("../docs/guide/intro.md");
 export default {
